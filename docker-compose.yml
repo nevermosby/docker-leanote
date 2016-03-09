@@ -1,0 +1,17 @@
+leanote-db:
+  restart: always
+  image: mongo:3.2.3
+  volumes:
+    - /home/a-david/leanote-bin/mongo-data:/data/db
+ 
+leanote-server:
+  restart: always
+  build: .
+  dockerfile: Dockerfile-leanote-bin
+  volumes:
+    - ./leanote-conf/app.conf:/usr/local/leanote/conf/app.conf
+    - ./leanote-conf/run.sh:/usr/local/leanote/bin/run.sh
+    - ./leanote-conf/public:/usr/local/leanote/public
+    - ./leanote-conf/files:/usr/local/leanote/files 
+  links:
+    - leanote-db:mongodb

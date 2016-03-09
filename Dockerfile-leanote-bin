@@ -7,8 +7,10 @@ RUN apk --update add curl && \
         rm -rf /var/cache/apk/*
 
 RUN tar -xzvf /usr/local/leanote-linux-amd64-v1.4.2.bin.tar.gz -C /usr/local
+EXPOSE 9000
 
 #VOLUME ["/usr/local/leanote/conf"]
+WORKDIR  /usr/local/leanote/bin
 
-CMD ["sh"]
+ENTRYPOINT ["sh","run.sh"]
 
