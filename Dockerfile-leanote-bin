@@ -1,5 +1,5 @@
 FROM alpine:3.3
-MAINTAINER David Li <legendarilylw@gmail.com>
+MAINTAINER David Li <legendarilylwq@gmail.com>
 
 RUN apk --update add curl && \
         curl -L http://sourceforge.net/projects/leanote-bin/files/1.4.2/leanote-linux-amd64-v1.4.2.bin.tar.gz/download >> /usr/local/leanote-linux-amd64-v1.4.2.bin.tar.gz && \
